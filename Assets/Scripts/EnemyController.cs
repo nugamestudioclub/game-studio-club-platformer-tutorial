@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,5 +66,14 @@ public class EnemyController : MonoBehaviour
             targetWaypoint = waypoint1;
             targetIndex = 1;
         }
+    }
+
+    /*
+     * Makes enemy die, do anything you want to get done beforedeath happen in here
+     */
+    public void Die()
+    {
+        Debug.Log(name + " is dying");
+        Destroy(gameObject);
     }
 }
