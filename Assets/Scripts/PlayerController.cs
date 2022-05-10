@@ -11,8 +11,10 @@ public class PlayerController : MonoBehaviour
     /*
      * Fields of the player used to manipulate and configure the movement
      */
-    public float jumpPower = 5;
-    public float moveSpeed = 25;
+    [SerializeField]
+    private float jumpPower = 5;
+    [SerializeField]
+    private float moveSpeed = 25;
     private Rigidbody2D rigidbody2d;
     private bool isGrounded;
 
