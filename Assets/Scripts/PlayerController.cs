@@ -79,4 +79,31 @@ public class PlayerController : MonoBehaviour
         Vector2 newVelocity = new Vector2(oldVelocity.x, jumpPower);
         rigidbody2d.velocity = newVelocity;
     }
+
+    /*
+     * When entering a collider that has IsTrigger checked
+     */
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            //get the enemy controll off of this collision
+            EnemyController enemy = collision.GetComponent<EnemyController>();
+
+            float playerHeight = transform.position.y;
+            float enemyHeight = enemy.transform.position.y;
+            float yMovement = rigidbody2d.velocity.y;
+
+            //if moving down or I am above the enemy -> hit enemy
+            if (playerHeight > enemyHeight || yMovement < 0)
+            {
+                enemy.Die();
+            } 
+            else
+            {
+                Debug.Log("Ouch! I have been hit by " + enemy.name);
+            }
+
+        }
+    }
 }
