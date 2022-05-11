@@ -102,6 +102,8 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Debug.Log("Ouch! I have been hit by " + enemy.name);
+                //Game over
+                TransitionManager.ToEndScene();
             }
 
         } else if (collision.gameObject.CompareTag("Gem"))
