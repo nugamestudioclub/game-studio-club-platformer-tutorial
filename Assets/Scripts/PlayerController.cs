@@ -104,6 +104,12 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Ouch! I have been hit by " + enemy.name);
             }
 
+        } else if (collision.gameObject.CompareTag("Gem"))
+        {
+            //get the gem off of this collision
+            Gem gem = collision.GetComponent<Gem>();
+
+            gem.Collect();
         }
     }
 }
