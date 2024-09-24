@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
         //gets the rigidbody that we will use for moving the player
         rigidbody2d = GetComponent<Rigidbody2D>();
         isGrounded = false;
-        animator = GetComponent<Animator>();
+        if(GetComponent<Animator>() != null) 
+            animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,17 +40,25 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) //move left
         {
             rigidbody2d.AddForce(moveSpeed * Time.deltaTime * Vector2.left, ForceMode2D.Impulse);
-            animator.GetComponent<SpriteRenderer>().flipX = true;
+            if (animator)
+                animator.GetComponent<SpriteRenderer>().flipX = true;
         }
         if (Input.GetKey(KeyCode.D)) //move right
         {
             rigidbody2d.AddForce(moveSpeed * Time.deltaTime * Vector2.right, ForceMode2D.Impulse);
-            animator.GetComponent<SpriteRenderer>().flipX = false;
-        }
-        float dir = rigidbody2d.velocity.x;
-        string anim = isGrounded ? (Mathf.Abs(dir) > 0.1 ? "player_running":"player_idle") : "player_falling";
 
-        animator.Play(anim);
+            if(animator)
+                animator.GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+        if (animator)
+        {
+            float dir = rigidbody2d.velocity.x;
+            string anim = isGrounded ? (Mathf.Abs(dir) > 0.1 ? "player_running" : "player_idle") : "player_falling";
+
+            animator.Play(anim);
+        }
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -58,7 +67,7 @@ public class PlayerController : MonoBehaviour
         float yMovement = rigidbody2d.velocity.y;
 
         //if the player is not moving in the y direction
-        if (Mathf.Abs(yMovement) < Mathf.Epsilon)
+        if (collision.transform.position.y < transform.position.y && yMovement < 0.01f)
         {
             isGrounded = true; //player is grounded
         }
@@ -73,7 +82,7 @@ public class PlayerController : MonoBehaviour
         float yMovement = rigidbody2d.velocity.y;
 
         //if the player is not moving in the y direction
-        if (Mathf.Abs(yMovement) < Mathf.Epsilon)
+        if (collision.transform.position.y < transform.position.y && yMovement < 0.01f)
         {
             isGrounded = true; //player is grounded
         }
@@ -113,10 +122,9 @@ public class PlayerController : MonoBehaviour
 
             float playerHeight = transform.position.y;
             float enemyHeight = enemy.transform.position.y;
-            float yMovement = rigidbody2d.velocity.y;
 
             //if moving down or I am above the enemy -> hit enemy
-            if (playerHeight > enemyHeight || yMovement < 0)
+            if (playerHeight > enemyHeight)
             {
                 enemy.Die();
             } 
@@ -136,14 +144,5 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        //saving current movement in the y direction
-        float yMovement = rigidbody2d.velocity.y;
 
-        if (collision.transform.position.y < transform.position.y && yMovement < 0.01f)
-        {
-            isGrounded = true;
-        }
-    }
 }
