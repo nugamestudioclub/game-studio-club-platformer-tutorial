@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384bfb4d93c0e4d4dadc3a4ac5bdb2bb, type: 3}
+  m_Name: PPlayerMSS
+  m_EditorClassIdentifier: 
+  id: 0
+  spriteSheets:
+    items:
+    - {fileID: 11400000, guid: bc32736e111b190458c1e5139de05eee, type: 2}
+    - {fileID: 11400000, guid: 82930ae2af7ba1743b79559a17a94dc6, type: 2}
+    - {fileID: 11400000, guid: c1cc310aa25ac2346a828a035c058c39, type: 2}
+    - {fileID: 11400000, guid: f741e08ef6db2eb4da7178f33f3d0000, type: 2}
+    - {fileID: 11400000, guid: 30af3c915f653bc4ebc55fde0d3f9408, type: 2}
+    - {fileID: 11400000, guid: 21ca5f41c0fa26b4fbc98e506f8f1eb7, type: 2}
+    - {fileID: 11400000, guid: cfc25dd2026ae7f4c89a041083b8c394, type: 2}
+    - {fileID: 11400000, guid: bc4c7d5a69b8b734cb9afa535c0bcd6d, type: 2}
+    - {fileID: 11400000, guid: 9061a82926605e54d8f4b4ba4d160d26, type: 2}

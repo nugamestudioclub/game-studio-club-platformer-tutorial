@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f05f13676ae804884c3b0fd5d24ef5, type: 3}
+  m_Name: player_idle1SS
+  m_EditorClassIdentifier: 
+  originalSprite: {fileID: 21300000, guid: 5a8a4e3a857794ad1ab1b932a18ca29e, type: 3}
+  <GreySprite>k__BackingField: {fileID: 21300000, guid: 4ffa70f6ccd19884fb691f500f397d3d, type: 3}
