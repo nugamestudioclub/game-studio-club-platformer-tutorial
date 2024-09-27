@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
 
             float playerHeight = transform.position.y;
             float enemyHeight = enemy.transform.position.y;
-
+            
             //if moving down or I am above the enemy -> hit enemy
             if (playerHeight > enemyHeight)
             {
